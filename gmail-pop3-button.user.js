@@ -4,7 +4,7 @@
 // @version      0.2
 // @description  Add a button to Gmail to check for new POP3 emails.
 // @author       hiro
-// @match        https://mail.google.com/mail/u/0/
+// @match        https://mail.google.com/mail/
 // @icon         https://mail.google.com/favicon.ico
 // @grant        none
 // @updateURL    https://github.com/hirohiro716/gmail-pop3-button/raw/main/gmail-pop3-button.user.js
