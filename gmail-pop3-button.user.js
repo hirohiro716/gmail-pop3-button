@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Gmail POP3 Checker
 // @namespace    https://github.com/hirohiro716/
-// @version      0.2
+// @version      0.3
 // @description  Add a button to Gmail to check for new POP3 emails.
 // @author       hiro
 // @match        https://mail.google.com/mail/*
