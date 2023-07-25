@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Gmail POP3 Checker
 // @namespace    https://github.com/hirohiro716/
-// @version      0.4
+// @version      0.5
 // @description  Add a button to Gmail to check for new POP3 emails.
 // @author       hiro
 // @match        https://mail.google.com/mail/*
@@ -71,7 +71,7 @@ window.addEventListener('load', () => {
                         setting.window.close();
                     } catch (error) {
                     }
-                }, 1000);
+                }, 5000);
             }
         };
         setting.window.addEventListener('load', () => {
