@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Gmail POP3 Checker
 // @namespace    https://github.com/hirohiro716/
-// @version      0.3
+// @version      0.4
 // @description  Add a button to Gmail to check for new POP3 emails.
 // @author       hiro
 // @match        https://mail.google.com/mail/*
@@ -16,14 +16,16 @@ const displayButton = () => {
     if (button) {
         if (location.href.endsWith('inbox')) {
             const adjustNavigation = () => {
-                const navigation = Array.from(window.document.querySelectorAll('div')).find(element => element.role === 'navigation' && element.style.height);
-                let height = String(navigation.style.height);
-                if (height.match(/em/)) {
-                    button.style.display = 'block';
-                    return;
+                const navigation = Array.from(window.document.querySelectorAll('div')).find(element => element.getAttribute("role") === 'navigation' && element.style.height);
+                if (navigation) {
+                    let height = String(navigation.style.height);
+                    if (height.match(/em/)) {
+                        button.style.display = 'block';
+                        return;
+                    }
+                    height = 'calc(' + height + ' - 3.5em)';
+                    navigation.style.height = height;
                 }
-                height = 'calc(' + height + ' - 3.5em)';
-                navigation.style.height = height;
                 setTimeout(adjustNavigation, 500);
             };
             adjustNavigation();
