@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Gmail POP3 Checker
 // @namespace    https://github.com/hirohiro716/
-// @version      0.7
+// @version      0.8
 // @description  Add a button to Gmail to check for new POP3 emails.
 // @author       hiro
 // @match        https://mail.google.com/mail/*
@@ -76,24 +76,26 @@ window.addEventListener('load', () => {
                 }, 10000);
             }
         };
-        setting.window.addEventListener('load', () => {
-            const div = setting.window.document.createElement('div');
-            div.style.position = 'fixed';
-            div.style.top = '0';
-            div.style.right = '0';
-            div.style.bottom = '0';
-            div.style.left = '0';
-            div.style.zIndex = '65535';
-            div.style.background = '#fff';
-            div.style.display = 'flex';
-            div.style.justifyContent = 'center';
-            div.style.alignItems = 'center';
-            const span = setting.window.document.createElement('span');
-            span.style.color = '#ccc';
-            span.textContent = '新着メールを確認中...';
-            div.append(span);
-            setting.window.document.body.append(div);
-            clicker();
+        setting.window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const div = setting.window.document.createElement('div');
+                div.style.position = 'fixed';
+                div.style.top = '0';
+                div.style.right = '0';
+                div.style.bottom = '0';
+                div.style.left = '0';
+                div.style.zIndex = '65535';
+                div.style.background = '#fff';
+                div.style.display = 'flex';
+                div.style.justifyContent = 'center';
+                div.style.alignItems = 'center';
+                const span = setting.window.document.createElement('span');
+                span.style.color = '#ccc';
+                span.textContent = '新着メールを確認中...';
+                div.append(span);
+                setting.window.document.body.append(div);
+                clicker();
+            }, 3000);
         });
     };
     body.append(button);
