@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Gmail POP3 Checker
 // @namespace    https://github.com/hirohiro716/
-// @version      0.8
+// @version      0.9
 // @description  Add a button to Gmail to check for new POP3 emails.
 // @author       hiro
 // @match        https://mail.google.com/mail/*
@@ -62,7 +62,7 @@ window.addEventListener('load', () => {
             number++;
             const text = 'メールを今すぐ確認する';
             const span = Array.from(setting.window.document.querySelectorAll('span')).find(element => element.textContent === text);
-            if (typeof span === 'undefined' && number < 10) {
+            if (typeof span === 'undefined' && number < 20) {
                 setTimeout(clicker, 500);
             } else {
                 if (span) {
@@ -101,3 +101,4 @@ window.addEventListener('load', () => {
     body.append(button);
     displayButton();
 });
+
